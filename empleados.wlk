@@ -1,17 +1,23 @@
-//Escribir aqui los objetos
 object galvan {
-  var sueldo= 15000
+  var sueldo = 15000
   var dinero = 0
   var deuda = 0
 
-   method cambiarSueldo(cantidad) {
-      sueldo = cantidad
+   method sueldo(_sueldo) { /*Setter*/
+      sueldo = _sueldo
     }
 
-    method sueldo() {
+    method sueldo() { /*Getter*/
       return sueldo
     }
 
+    method deuda() {
+      return deuda
+    }
+
+    method dinero() {
+      return dinero
+    }
   
     method gastar(cuanto) {
     if (dinero >= cuanto) {
@@ -38,8 +44,8 @@ object baigorria {
     var sueldo = 0
     var sueldoAcumulado = 0
 
-    method ventasEmpanadas(cantidad) {
-      sueldo = cantidad * 15
+    method vender(cantidad) {
+      sueldo = sueldo + cantidad * 15
     }
 
     method sueldo() {
@@ -55,8 +61,8 @@ object baigorria {
 object gimenez {
   var fondoCaja = 300000
 
-  method pagoDeSueldo(sueldoEmpleado) {
-    fondoCaja = fondoCaja - sueldoEmpleado
+  method pagarSueldo(empleado) {
+    fondoCaja = fondoCaja - empleado.sueldo()
   }
 
   method fondo() {
