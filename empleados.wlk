@@ -32,8 +32,8 @@ object galvan {
   method cobrar() {
     if (sueldo >= deuda) {
       var sobra = sueldo - deuda
-      deuda = 0
       dinero = dinero + sobra
+      deuda = 0
     } else {
       deuda = deuda - sueldo
     }
@@ -54,6 +54,10 @@ object baigorria {
 
     method totalCobrado() {
       return sueldoAcumulado
+    }
+
+    method cobrar() {
+      sueldoAcumulado = sueldoAcumulado + sueldo
       sueldo = 0
     }
 }
@@ -63,10 +67,13 @@ object gimenez {
 
   method pagarSueldo(empleado) {
     fondoCaja = fondoCaja - empleado.sueldo()
+    empleado.cobrar()
   }
 
   method fondo() {
       return fondoCaja
   }
 }
+
+
 
